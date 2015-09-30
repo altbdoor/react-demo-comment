@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/style.css">
     
-</head>
-<body>
     <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.25/browser.min.js"></script>
     
@@ -19,8 +17,9 @@
             var components = [
                 'component/nav.js',
                 'component/comment.js',
+                'component/about.js',
                 
-                'static/main.js'
+                'component/app.js'
             ];
             
             // load the babel
@@ -45,15 +44,18 @@
             });
             
             function runBabel () {
-                var babelText = '';
+                var babelText = '',
+                    script = document.createElement('script');
                 
                 components.forEach(function (item, index) {
                     babelText += loadedContent[item];
                 });
                 
-                babel.run(babelText);
+                script.innerHTML = babel.transform(babelText).code;
+                document.head.appendChild(script);
             }
         })();
     </script>
-</body>
+</head>
+<body></body>
 </html>

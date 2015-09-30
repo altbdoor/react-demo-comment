@@ -13,11 +13,8 @@ var CommentContainer = React.createClass({
     },
     componentDidMount: function () {
         // supposedly logic for ajax
-        var self = this;
         
-        setTimeout(function () {
-            self.setState({data: fakeComments});
-        }, 2000);
+        this.setState({data: fakeComments});
     },
     handleCommentSubmit: function (comment) {
         var comments = this.state.data;
@@ -28,7 +25,7 @@ var CommentContainer = React.createClass({
     },
     render: function () {
         return (
-            <div id="comment-container">
+            <div id="comment-container" className="content-container">
                 <div className="container">
                     <CommentList comments={this.state.data} />
                     <CommentForm onCommentSubmit={this.handleCommentSubmit} />
