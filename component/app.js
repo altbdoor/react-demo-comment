@@ -20,7 +20,7 @@ var App = React.createClass({
             case '/about': Child = AboutContainer; break;
             default: Child = CommentContainer;
         }
-        console.log(Child);
+        
         return (
             <div id="main-container">
                 <NavContainer />
