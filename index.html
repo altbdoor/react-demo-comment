@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comment</title>
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/style.css">
+    
+</head>
+<body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.25/browser.min.js"></script>
+    
+    <script>
+        (function () {
+            // define components to load
+            var components = [
+                'component/nav.js',
+                'component/comment.js',
+                
+                'static/main.js'
+            ];
+            
+            // load the babel
+            var loadedIndex = [],
+                loadedContent = {};
+            
+            components.forEach(function (item, index) {
+                var http = new XMLHttpRequest();
+                
+                http.open('GET', item, true);
+                http.onload = function() {
+                    if (this.status >= 200 && this.status < 400) {
+                        loadedContent[item] = this.responseText; 
+                        loadedIndex.push(index);
+                        
+                        if (loadedIndex.length == components.length) {
+                            runBabel();
+                        }
+                    }
+                };
+                http.send();
+            });
+            
+            function runBabel () {
+                var babelText = '';
+                
+                components.forEach(function (item, index) {
+                    babelText += loadedContent[item];
+                });
+                
+                babel.run(babelText);
+            }
+        })();
+    </script>
+</body>
+</html>

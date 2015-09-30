@@ -1,0 +1,56 @@
+html, body {height:100%}
+textarea {resize:vertical}
+
+.container {max-width:768px}
+
+#main-container {position:relative; height:100%; min-width:320px}
+
+#nav {}
+#nav-link {color:#fff; font-weight:700; line-height:49px; letter-spacing:1px; text-decoration:none}
+
+#comment-container {
+    background-color:#eee;
+    position:fixed; top:50px; right:0; bottom:0; left:0; overflow-y:scroll
+}
+
+#comment-list {margin:20px 0}
+#comment-list > li:first-child {border-top:1px solid #ccc}
+#comment-list > li {border-bottom:1px solid #ccc; padding:5px 0}
+.comment-list-comment {white-space:pre-wrap}
+
+/* responsive */
+@media (max-width:767px) { /* xs */
+    .home-list-btn-remove {margin-top:5px}
+}
+
+@media (min-width:768px) and (max-width:991px) { /* sm */
+    
+}
+
+@media (min-width:992px) and (max-width:1199px) { /* md */
+    
+}
+
+@media (min-width:1200px) { /* lg */
+    
+}
+
+/* responsive-ness upscale */
+@media (min-width:768px) { /* sm and above */
+    
+}
+
+@media (min-width:992px) { /* md and above */
+    
+}
+
+/* responsive-ness downscale */
+@media (max-width:991px) { /* sm and below */
+    
+}
+
+@media (max-width:1199px) { /* md and below */
+    
+}
+
+
